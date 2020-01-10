@@ -1,0 +1,33 @@
+from: markdown+smart
+to: pdf
+standalone: true
+
+
+# metadata variables:
+metadata:
+  author: Cycatz
+
+# other variables:
+variables:
+  links-as-notes: true 
+  geometry: margin=2cm
+  header-left: "\\hspace{1cm}"
+  header-center: "\\leftmark"
+  header-right: "Page \\thepage"
+  footer-left: "\\thetitle"
+  footer-center: "This is \\LaTeX{}"
+  footer-right: "\\theauthor" 
+
+  # font variables
+  CJKmainfont: "Noto Sans CJK TC"
+  mainfont: "Noto Sans CJK TC"
+  monofont: "InconsolataLGC Nerd Font Mono"
+  fontsize: "12pt"
+
+pdf-engine: xelatex
+table-of-contents: true
+toc-depth: 2
+tab-stop: 2
+highlight-style: pygments
+template:  note.latex
+
