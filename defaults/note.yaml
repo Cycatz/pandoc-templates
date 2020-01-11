@@ -7,14 +7,17 @@ standalone: true
 
 variables:
   links-as-notes: true 
-  geometry: margin=3cm
-  authors: Cycatz
-  title: Some Assignment
+  geometry: 
+  - top=25mm
+  - bottom=25mm
+  - left=20mm
+  - right=20mm
+  author: Cycatz
 
   # font variables
   CJKmainfont: "Noto Serif CJK TC"
   # mainfont: "Noto Sans CJK TC"
-  monofont: "InconsolataLGC Nerd Font Mono"
+  # monofont: "InconsolataLGC Nerd Font Mono"
   fontsize: "12pt"
   papersize: "a4paper"
   documentclass: "scrartcl"

@@ -33,14 +33,13 @@ $endfor$
 
 % Packages
 \usepackage[T1]{fontenc}
-\usepackage{fontspec}
-\usepackage{xltxtra}
+\usepackage{xltxtra} % has included fontspec package
 \usepackage{xunicode}
 \usepackage{eurosym}
 \usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{mathtools}
+\usepackage{mathtools} % has included amsmath package 
 \usepackage{upquote}
+\usepackage{datetime2} % ISO time format
 % \usepackage{microtype}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx}
@@ -73,7 +72,7 @@ $if(CJKmainfont)$
 \usepackage[space]{xeCJK}
 \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
 \linespread{1.2}\selectfont   % 行距
-\XeTeXlinebreaklocale "zh"    % 針對中文自動換行
+\XeTeXlinebreaklocale "zh"    % 針對中文自動換行，因為英文只會在空白處斷行，中文可以任意
 \XeTeXlinebreakskip = 0pt plus 1pt % 字與字之間加入0pt至1pt的間距，確保左右對整齊
 \parindent 0em        % 段落縮進
 \setlength{\parskip}{20pt}    % 段落之間的距離
@@ -85,11 +84,15 @@ $endif$
 
 % Required fix for fancyhdr
 \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+
 % Fancy headers and footers settings
 \pagestyle{fancy}
-\lhead{$left-header$}
-\rhead{$right-header$}
-
+\fancyhead{}
+\chead{$course$}
+\fancyfoot{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+% \renewcommand{\footrulewidth}{0.4pt}
 
 % Required for syntax highlighting
 $highlighting-macros$
@@ -124,7 +127,7 @@ $endif$
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 
 
-
+% numbersections
 $if(numbersections)$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
 $else$
@@ -137,11 +140,24 @@ $endif$
 % -----------------
 \begin{document}
 
-\begin{center}
-  \hfill \break%
-  $if(title)$\Huge{$title$}\\[0.5em]$endif$
-  $if(authors)$\Large{$authors$}\\[2.5em]$endif$
-\end{center}
+	% titlepage
+	\begin{titlepage}
+		\centering
+		\vspace*{0.2cm}
+		\includegraphics[scale=1.6]{/home/cycatz/.local/share/pandoc/templates/images/emblem_logo.pdf}\\[0.6cm]
+		\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+		{\huge $course$}\\
+		\rule{\linewidth}{0.3 mm} \\[1.5 cm]
+		\textsc{\Large $perCourseCode$}\\[0.5 cm]				% Permanent Course Code
+		\textsc{\large $courseCode$}\\[0.5 cm]				% Course Code
+		\textsc{\large $semester$}\\[0.5 cm]				% Semester
+		\vspace*{\fill}
+		\large{$author$}\\
+		$if(email)$
+		\large{$email$}\\
+		$endif$
+		\large{\today}
+	\end{titlepage}
 
 $if(toc)$
 	$if(toc-title)$
@@ -159,7 +175,5 @@ $endif$
 $if(lof)$
 	\listoffigures
 $endif$
-
 $body$
-
 \end{document}
