@@ -44,7 +44,7 @@ $endfor$
 % \usepackage{microtype}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx}
-\usepackage{grffile}
+% \usepackage{grffile} will cause picture not showing
 \usepackage[normalem]{ulem}
 \usepackage{fancyhdr}
 \usepackage[setpagesize=false,
@@ -95,13 +95,18 @@ $endif$
 $highlighting-macros$
 
 
-% Don't let images overflow the page
-% Can still explicit set width/height/options for an image
+$if(graphics)$
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
 \makeatother
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+$endif$
 
 
 % Make links footnotes instead of hotlinks
@@ -119,13 +124,12 @@ $highlighting-macros$
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 
 
-% No section numbering
-\makeatletter
-\def\@seccntformat#1{%
-  \expandafter\ifx\csname c@#1\endcsname\c@section\else
-  \csname the#1\endcsname\quad
-  \fi}
-\makeatother
+
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
 
 
 % -----------------
