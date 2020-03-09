@@ -1,10 +1,10 @@
-from: markdown+smart
+from: markdown+smart+fenced_divs
 to: pdf
 standalone: true
 
-
+filters:
+  - div.lua
 # other variables:
-
 variables:
   links-as-notes: true 
   geometry: 

@@ -1,0 +1,19 @@
+\usepackage{graphicx}
+\begin{titlepage}
+	\centering
+	\vspace*{0.2cm}
+	\includegraphics[width=15cm, height=15cm]{/home/cycatz/.local/share/pandoc/templates/images/emblem_logo.pdf}\\[0.6cm] % explicitly add width and height options, or it will be treated as an embedded image in markdown to be scaled. 
+	%\includegraphics[width=15cm, height=15cm]{/home/cycatz/.local/share/pandoc/templates/images/LOGO.png}\\[0.6cm] 
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{\huge $course$}\\
+	\rule{\linewidth}{0.3 mm} \\[1.5 cm]
+	\textsc{\Large $perCourseCode$}\\[0.5 cm]				% Permanent Course Code
+	\textsc{\large $courseCode$}\\[0.5 cm]				% Course Code
+	\textsc{\large $semester$}\\[0.5 cm]				% Semester
+	\vspace*{\fill}
+	\large{$author$}\\
+	$if(email)$
+	\large{$email$}\\
+	$endif$
+	\large{\today}
+\end{titlepage}
