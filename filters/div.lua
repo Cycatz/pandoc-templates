@@ -1,5 +1,5 @@
 function Div(el)
-  if el.classes[1] == "warning" or  el.classes[1] == "proof" then
+  if el.classes[1] == "warning" or  el.classes[1] == "proof" or el.classes[1] == "definition" then
     -- insert element in front
     table.insert(
       el.content, 1,
@@ -11,3 +11,4 @@ function Div(el)
   end
   return el
 end
+

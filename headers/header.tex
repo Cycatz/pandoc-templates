@@ -1,0 +1,21 @@
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\newenvironment{warning}
+    {\begin{tcolorbox}[colbacktitle=red!50!white,
+                       title=Warning,coltitle=black,
+                       fonttitle=\bfseries]}
+    {\end{tcolorbox}}
+\newenvironment{proof}
+    {\begin{tcolorbox}[colbacktitle=yellow!50!white,
+                       title=proof,coltitle=black,
+                       fonttitle=\bfseries]}
+    {\end{tcolorbox}}
+\newenvironment{definition}
+    {\begin{tcolorbox}[colbacktitle=blue!50!white,
+                       title=defintion,coltitle=black,
+                       fonttitle=\bfseries]}
+    {\end{tcolorbox}}

@@ -1,4 +1,4 @@
-from: markdown+smart+fenced_divs
+from: markdown+smart+fenced_divs+bracketed_spans
 to: pdf
 standalone: true
 
