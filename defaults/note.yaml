@@ -3,7 +3,7 @@ to: pdf
 standalone: true
 
 filters:
-  - div.lua
+  - boxes.lua
 # other variables:
 variables:
   links-as-notes: true 
