@@ -1,7 +1,17 @@
+ % change second level list symbol
+ \renewcommand\labelitemii{$\circ$}
+
+% draw tikz
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usetikzlibrary{matrix}
 \usetikzlibrary{arrows}
+
+% folding code
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+
+% define some fancy boxes
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \newenvironment{warning}
