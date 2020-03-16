@@ -1,0 +1,30 @@
+from: markdown+smart+fenced_divs+bracketed_spans
+to: pdf
+standalone: true
+
+filters:
+  - boxes.lua
+# other variables:
+variables:
+  links-as-notes: true 
+  geometry: 
+  - top=25mm
+  - bottom=25mm
+  - left=20mm
+  - right=20mm
+  author: Cycatz
+
+  # font variables
+  CJKmainfont: "Noto Serif CJK TC"
+  # mainfont: "Noto Sans CJK TC"
+  # monofont: "InconsolataLGC Nerd Font Mono"
+  fontsize: "12pt"
+  papersize: "a4paper"
+  documentclass: "scrartcl"
+
+pdf-engine: xelatex
+table-of-contents: true
+toc-depth: 2
+tab-stop: 2
+highlight-style: pygments
+
